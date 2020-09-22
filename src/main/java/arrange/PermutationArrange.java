@@ -42,11 +42,11 @@ public class PermutationArrange {
 		return arrangements;
 	}
 	
-	private static ArrayList<int[]> permutateSwapElements(int[] array, int n, int r, int[] placeholder, int index, ArrayList<int[]> arrangements) {
+	private static void permutateSwapElements(int[] array, int n, int r, int[] placeholder, int index, ArrayList<int[]> arrangements) {
 		if(r == 0) {
 			//	Clone the array in order to prevent modification from future use
 			arrangements.add(placeholder.clone());
-			return arrangements;
+			return ;
 		}
 		
 		for(int i = 0; i < n; i++) {
@@ -56,8 +56,6 @@ public class PermutationArrange {
 			permutateSwapElements(array, n - 1, r - 1, placeholder, index + 1, arrangements);
 			Utils.swapElements(array, i, n - 1);
 		}
-		
-		return arrangements;
 	}
 	
 	/**
@@ -94,11 +92,11 @@ public class PermutationArrange {
 		return arrangements;
 	}
 	
-	private static ArrayList<int[]> permutateRemoveElements(int[] array, int n, int r, int[] placeholder, int index, ArrayList<int[]> arrangements) {
+	private static void permutateRemoveElements(int[] array, int n, int r, int[] placeholder, int index, ArrayList<int[]> arrangements) {
 		if(r == 0) {
 			//	Clone the array in order to prevent modification from future use
 			arrangements.add(placeholder.clone());
-			return arrangements;
+			return ;
 		}
 		
 		for(int i = 0; i < n; i++) {
@@ -107,7 +105,5 @@ public class PermutationArrange {
 			int[] subArray = Utils.removeElementAtIndex(array, i);
 			permutateRemoveElements(subArray, n - 1, r - 1, placeholder, index + 1, arrangements);
 		}
-		
-		return arrangements;
 	}
 }
