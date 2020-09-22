@@ -1,6 +1,6 @@
 package main.java.sort;
 
-import main.java.utils.ArrayUtils;
+import main.java.utils.Utils;
 
 public class SelectionSort {
 
@@ -35,7 +35,7 @@ public class SelectionSort {
 				}
 			}
 			
-			ArrayUtils.swapValues(array, minIndex, i);
+			Utils.swapElements(array, minIndex, i);
 		}
 	}
 }

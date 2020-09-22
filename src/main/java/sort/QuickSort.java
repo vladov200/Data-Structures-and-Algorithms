@@ -3,7 +3,7 @@ package main.java.sort;
 import java.util.Arrays;
 import java.util.Random;
 
-import main.java.utils.ArrayUtils;
+import main.java.utils.Utils;
 
 public class QuickSort {
 

@@ -1,5 +1,7 @@
 package test.java.sort;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -23,5 +25,49 @@ public class BubbleSortTest {
 		
 		BubbleSort.sort(array);
 		Assert.assertArrayEquals(expected, array);
+	}
+	
+	@Test
+	public void shouldBeSortedInAscendingOrder2D() {
+		ArrayList<int[]> list = new ArrayList<>();
+		list.add(new int[] {3, 1, 2});
+		list.add(new int[] {1, 3, 2});
+		list.add(new int[] {3, 2, 1});
+		list.add(new int[] {2, 1, 3});
+		list.add(new int[] {2, 3, 1});
+		list.add(new int[] {1, 2, 3});
+        
+        ArrayList<int[]> expected = new ArrayList<>();
+        expected.add(new int[] {1, 2, 3});
+        expected.add(new int[] {1, 3, 2});
+        expected.add(new int[] {2, 1, 3});
+        expected.add(new int[] {2, 3, 1});
+        expected.add(new int[] {3, 1, 2});
+        expected.add(new int[] {3, 2, 1});
+        
+        BubbleSort.sort2D(list);
+        Assert.assertArrayEquals(expected.toArray(), list.toArray());
+	}
+	
+	@Test
+	public void shouldBeSortedInAscendingOrderWithDuplicates2D() {
+		ArrayList<int[]> list = new ArrayList<>();
+		list.add(new int[] {3, 2, 1});
+		list.add(new int[] {1, 1, 3});
+		list.add(new int[] {1, 1, 2});
+		list.add(new int[] {2, 2, 3});
+		list.add(new int[] {3, 1, 2});
+		list.add(new int[] {2, 2, 1});
+        
+		ArrayList<int[]> expected = new ArrayList<>();
+        expected.add(new int[] {1, 1, 2});
+        expected.add(new int[] {1, 1, 3});
+        expected.add(new int[] {2, 2, 1});
+        expected.add(new int[] {2, 2, 3});
+        expected.add(new int[] {3, 1, 2});
+        expected.add(new int[] {3, 2, 1});
+        
+        BubbleSort.sort2D(list);
+        Assert.assertArrayEquals(expected.toArray(), list.toArray());
 	}
 }

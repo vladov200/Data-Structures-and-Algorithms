@@ -2,7 +2,7 @@ package main.java.sort;
 
 import java.util.Arrays;
 
-import main.java.utils.ArrayUtils;
+import main.java.utils.Utils;
 
 public class MergeSort {
 
