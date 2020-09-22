@@ -1,12 +1,11 @@
 package test.java.arrange;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import main.java.arrange.CombinationArrange;
-import main.java.utils.ArrayUtils;
 
 public class CombinationArrangeTest {
 

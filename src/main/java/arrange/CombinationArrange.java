@@ -2,6 +2,8 @@ package main.java.arrange;
 
 import java.util.ArrayList;
 
+import main.java.utils.Utils;
+
 public class CombinationArrange {
 	/**
 	 * Arrange the array taking every possible combination.
@@ -24,32 +26,27 @@ public class CombinationArrange {
 	 * @param array
 	 * @param n
 	 * @param r
+	 * @return
 	 */
 	public static ArrayList<int[]> arrange(int[] array, int n, int r) {
 		ArrayList<int[]> arrangements = new ArrayList<>();
 		
-		if(n > 0 && r > 0) {
-			int[] placeholder = new int[r];
-			combinate(array, placeholder, arrangements, 0, n - 1, 0, r);
+		if(n > 0 && r > 0 && r <= n) {
+			combinate(array, n, r, new int[r], 0, 0, arrangements);
 		}
 		
 		return arrangements;
 	}
 	
-	private static ArrayList<int[]> combinate(int[] array, int[] placeholder, ArrayList<int[]> arrangements, int start, int end, int index, int r) {
-		if(index == r) {
-			//	Have to clone placeholder because it will be reused
-			//	If it is added to the arraylist directly, future
-			//		modifications will alter previously added arrays
+	private static void combinate(int[] array, int n, int r, int[] placeholder, int start, int index, ArrayList<int[]> arrangements) {
+		if(r == 0) {
 			arrangements.add(placeholder.clone());
-			return arrangements;
+			return;
 		}
 		
-		for(int i = start; i <= end; i++) {
+		for(int i = start; i < n; i++) {
 			placeholder[index] = array[i];
-			combinate(array, placeholder, arrangements, i + 1, end, index + 1, r);
+			combinate(array, n, r - 1, placeholder, i + 1, index + 1, arrangements);
 		}
-		
-		return arrangements;
 	}
 }
